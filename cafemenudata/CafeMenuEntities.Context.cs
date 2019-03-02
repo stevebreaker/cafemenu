@@ -13,10 +13,10 @@ namespace cafemenudata
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MafeMenuEntities : DbContext
+    public partial class CafeMenuEntities : DbContext
     {
-        public MafeMenuEntities()
-            : base("name=MafeMenuEntities")
+        public CafeMenuEntities()
+            : base("name=CafeMenuEntities")
         {
         }
     

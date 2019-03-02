@@ -123,7 +123,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MafeMenuEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CafeMenuEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="dietary_option" EntityType="Self.dietary_option" />
           <EntitySet Name="menu_item" EntityType="Self.menu_item" />
           <EntitySet Name="menu_schedule" EntityType="Self.menu_schedule" />
@@ -141,7 +141,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CafeMenuModelStoreContainer" CdmEntityContainer="MafeMenuEntities">
+        <EntityContainerMapping StorageEntityContainer="CafeMenuModelStoreContainer" CdmEntityContainer="CafeMenuEntities">
           <EntitySetMapping Name="dietary_option">
             <EntityTypeMapping TypeName="CafeMenuModel.dietary_option">
               <MappingFragment StoreEntitySet="dietary_option">
