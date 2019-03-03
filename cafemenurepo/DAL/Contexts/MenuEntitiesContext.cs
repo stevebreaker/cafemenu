@@ -16,8 +16,8 @@ namespace cafemenurepo.DAL.Contexts
         }
 
 
-        DbSet<MenuItemDTO> menuItems { get; set; }
-        DbSet<DietaryOptionDTO> dietaryOptions { get; set; }
+        public DbSet<MenuItemDTO> MenuItems { get; set; }
+        public DbSet<DietaryOptionDTO> DietaryOptions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

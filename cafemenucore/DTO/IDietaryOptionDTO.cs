@@ -8,7 +8,7 @@ namespace cafemenucore.DTO
     {
 
         int Id { get; set; }
-        int Name { get; set; }
+        String Name { get; set; }
 
     }
 }

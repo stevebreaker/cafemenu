@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 using cafemenucore.DTO;
 using cafemenucore.Models;
+using cafemenurepo.DAL.Contexts;
+using cafemenurepo.DAL;
+using AutoMapper;
+using System.Linq;
 
 namespace cafemenurepo.Repositories
 {
@@ -10,7 +14,15 @@ namespace cafemenurepo.Repositories
     {
         public ICollection<MenuItem> Get()
         {
-            throw new NotImplementedException();
+
+            List<MenuItem> menuItems;
+
+            using (var db = new MenuEntitiesContext()) {
+                menuItems = db.MenuItems.ToList().Select(item => ConvertFromDTO(item)).ToList();
+            }
+
+            return menuItems;
+
         }
 
         public ICollection<MenuItem> Get(int Id)
@@ -30,7 +42,15 @@ namespace cafemenurepo.Repositories
 
         public MenuItem ConvertFromDTO(IMenuItemDTO menuItemDTO)
         {
-            throw new NotImplementedException();
+            var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<MenuItemDTO, MenuItem>();
+                    cfg.CreateMap<DietaryOptionDTO, DietaryOption>(); }
+                );
+
+            var mapper = config.CreateMapper();
+
+            return mapper.Map<MenuItem>(menuItemDTO);
+
         }
 
         public MenuItem Delete(MenuItem menuItem)

@@ -15,9 +15,10 @@ namespace cafemenurepo.DAL
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        [Column("dietary_flag"), ForeignKey("DietaryOptionDTO")]
+        [Column("dietary_flag")]
         public int DietaryOptionId { get; set; }
 
+        [ForeignKey("DietaryOptionId")]
         public virtual DietaryOptionDTO DietaryOption { get; set; }
 
     }

@@ -9,6 +9,7 @@ namespace cafemenucore.Models
         public int Id;
         public string Name;
         public decimal Price;
-        public DietaryOption DietaryFlag;
+        public int DietaryFlagID;
+        public DietaryOption DietaryOption;
     }
 }
