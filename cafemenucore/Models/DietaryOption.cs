@@ -4,12 +4,12 @@ using System.Text;
 
 namespace cafemenucore.Models
 {
-    class DietaryOption
+    public class DietaryOption
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<IMenuItemDTO> MenuItems { get; set; }
+        public virtual ICollection<MenuItem> MenuItems { get; set; }
 
     }
 }

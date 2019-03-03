@@ -4,7 +4,7 @@ using System.Text;
 
 namespace cafemenucore.Models
 {
-    class IMenuItemDTO
+    public class MenuItem
     {
         public int Id;
         public string Name;

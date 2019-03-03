@@ -4,11 +4,11 @@ using System.Text;
 
 namespace cafemenucore.Models
 {
-    class IMenuScheduleDTO
+    public class MenuSchedule
     {
         public int Id;
         public DateTime day;
 
-        public virtual ICollection<IMenuItemDTO> MenuItems { get; set; }
+        public virtual ICollection<MenuItem> MenuItems { get; set; }
     }
 }
