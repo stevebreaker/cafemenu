@@ -7,8 +7,11 @@ namespace cafemenucore.Models
     public class MenuSchedule
     {
         public int Id;
-        public DateTime day;
 
-        public virtual ICollection<MenuItem> MenuItems { get; set; }
+        public int MenuDayId;
+        public MenuDay Day;
+
+        public int MenuItemId;
+        public MenuItem MenuItem;
     }
 }

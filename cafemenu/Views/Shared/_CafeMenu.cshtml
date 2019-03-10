@@ -1,0 +1,19 @@
+﻿@model IEnumerable<cafemenucore.Models.MenuDay>
+<div class="wk_menu">
+    <div class="row menu-day">
+        <div class="menu-list">
+            @foreach (var menuDay in Model){
+
+                <span class="font-weight-bolder">@menuDay.Day.ToString("dddd MMMM dd yyyy")</span>
+                <ul class="list-unstyled">
+                    @foreach (var menuItem in menuDay.MenuItems)
+                    {
+                        <li>@menuItem.Name</li>
+                    }
+                </ul>
+            }
+            <ul>
+            </ul>
+        </div>
+    </div>
+</div>

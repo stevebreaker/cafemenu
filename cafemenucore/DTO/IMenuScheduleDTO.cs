@@ -7,7 +7,7 @@ namespace cafemenucore.DTO
     public interface IMenuScheduleDTO
     {
         int Id { get; set; }
-        DateTime Day { get; set; }
-        int MenuItemID { get; set; }
+        int DayId { get; set; }
+        int MenuItemId { get; set; }
     }
 }

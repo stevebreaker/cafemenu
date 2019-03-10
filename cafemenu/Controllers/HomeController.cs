@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using cafemenurepo.Repositories;
 using cafemenucore.Models;
 using System.Web.Helpers;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace cafemenu.Controllers
 {
@@ -13,16 +15,14 @@ namespace cafemenu.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
+            IMenuDayRepository repo = new MenuDayRepository();
 
-        public JsonResult MenuItems()
-        {
-            MenuItemsRepository repo = new MenuItemsRepository();
+            DateTime startWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+            DateTime endWeek = startWeek.AddDays((int)DayOfWeek.Saturday);
 
-            ICollection<MenuItem> menuItems = repo.Get();
+            ICollection<MenuDay> menuItems = repo.Get(startWeek, endWeek);
 
-            return Json(menuItems, JsonRequestBehavior.AllowGet);
+            return View(menuItems);
         }
 
     }

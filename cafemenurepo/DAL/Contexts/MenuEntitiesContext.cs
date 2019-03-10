@@ -17,7 +17,9 @@ namespace cafemenurepo.DAL.Contexts
 
 
         public DbSet<MenuItemDTO> MenuItems { get; set; }
+        public DbSet<MenuScheduleDTO> MenuSchedules { get; set; }
         public DbSet<DietaryOptionDTO> DietaryOptions { get; set; }
+        public DbSet<MenuDayDTO> MenuDays { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

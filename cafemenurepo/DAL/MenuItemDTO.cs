@@ -21,5 +21,7 @@ namespace cafemenurepo.DAL
         [ForeignKey("DietaryOptionId")]
         public virtual DietaryOptionDTO DietaryOption { get; set; }
 
+        public ICollection<MenuScheduleDTO> MenuSchedules { get; set; }
+
     }
 }

@@ -144,10 +144,14 @@
   <ItemGroup>
     <Compile Include="DAL\Contexts\MenuEntitiesContext.cs" />
     <Compile Include="DAL\DietaryOptionDTO.cs" />
+    <Compile Include="DAL\MenuDayDTO.cs" />
     <Compile Include="DAL\MenuItemDTO.cs" />
+    <Compile Include="DAL\MenuScheduleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMenuItemsRepository.cs" />
+    <Compile Include="Repositories\IMenuDayRepository.cs" />
     <Compile Include="Repositories\MenuItemsRepository.cs" />
+    <Compile Include="Repositories\MenuDayRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cafemenucore\cafemenucore.csproj">

@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\IDietaryOptionDTO.cs" />
+    <Compile Include="DTO\IMenuDayDTO.cs" />
     <Compile Include="DTO\IMenuItemDTO.cs" />
     <Compile Include="DTO\IMenuScheduleDTO.cs" />
     <Compile Include="Models\DietaryOption.cs" />
+    <Compile Include="Models\MenuDay.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\MenuSchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

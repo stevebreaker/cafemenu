@@ -21,5 +21,6 @@ namespace cafemenurepo.Repositories
         MenuItem Delete(MenuItem menuItem);
 
         MenuItem ConvertFromDTO(IMenuItemDTO menuItemDTO);
+
     }
 }
