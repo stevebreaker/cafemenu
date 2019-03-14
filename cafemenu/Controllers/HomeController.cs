@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using cafemenurepo.Repositories;
 using cafemenucore.Models;
-using System.Web.Helpers;
-using System.Net.Http;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace cafemenu.Controllers
 {
@@ -23,6 +22,22 @@ namespace cafemenu.Controllers
             ICollection<MenuDay> menuItems = repo.Get(startWeek, endWeek);
 
             return View(menuItems);
+        }
+
+        public async Task<ActionResult> IndexRest()
+        {
+
+            HttpClient client = new HttpClient();
+
+            var response = await client.GetAsync("http://localhost:50082/api/weeklymenu");
+
+            response.EnsureSuccessStatusCode();
+
+            ICollection<MenuDay> menuItems = await response.Content.ReadAsAsync<ICollection<MenuDay>>();
+
+
+            return View("Index",menuItems);
+
         }
 
     }

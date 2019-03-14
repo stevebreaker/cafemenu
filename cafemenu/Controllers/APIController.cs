@@ -10,6 +10,7 @@ namespace cafemenu.Controllers
 {
     public class APIController : Controller
     {
+        [HttpGet]
         public JsonResult MenuItems()
         {
             IMenuItemsRepository repo = new MenuItemsRepository();
@@ -19,7 +20,21 @@ namespace cafemenu.Controllers
             return Json(menuItems, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public JsonResult MenuSchedule()
+        {
+            IMenuDayRepository repo = new MenuDayRepository();
+
+            DateTime startWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+            DateTime endWeek = startWeek.AddDays((int)DayOfWeek.Saturday);
+
+            ICollection<MenuDay> menuItems = repo.Get(startWeek, endWeek);
+
+            return Json(menuItems, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult WeeklyMenu()
         {
             IMenuDayRepository repo = new MenuDayRepository();
 

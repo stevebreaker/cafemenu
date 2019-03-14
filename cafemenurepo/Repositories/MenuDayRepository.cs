@@ -42,7 +42,22 @@ namespace cafemenurepo.Repositories
 
         }
 
-        public MenuDay ConvertFromDTO(IMenuDayDTO menuDTO)
+        public ICollection<MenuDay> GetNoAutomap(DateTime startDate, DateTime endDate)
+        {
+
+            List<MenuDay> menuDays;
+
+            using (var db = new MenuEntitiesContext())
+            {
+                menuDays = db.MenuDays.Include("MenuSchedules").Where(d => d.Day >= startDate ).Where(d => d.Day <= endDate).ToList().Select(day => ConvertFromDTO(day)).ToList();
+
+            }
+
+            return menuDays;
+
+        }
+
+        public MenuDay ConvertFromDTO(MenuDayDTO menuDTO)
         {
             var config = new MapperConfiguration(cfg =>
                 {
@@ -55,6 +70,35 @@ namespace cafemenurepo.Repositories
             var mapper = config.CreateMapper();
 
             return mapper.Map<MenuDay>(menuDTO);
+
+        }
+
+        public MenuDay ConvertFromDTONoAutomap(MenuDayDTO menuDTO)
+        {
+            MenuDay day = new MenuDay
+            {
+                Day = menuDTO.Day,
+            };
+
+
+            foreach (MenuScheduleDTO menuScheule in menuDTO.MenuSchedules) {
+
+                MenuItem newMenuItem = new MenuItem
+                {
+                    Id = menuScheule.MenuItem.Id,
+                    Name = menuScheule.MenuItem.Name,
+                    DietaryOption = new DietaryOption
+                    {
+                        Id = menuScheule.MenuItem.DietaryOptionId,
+                        Name = menuScheule.MenuItem.DietaryOption.Name
+                    },
+                };
+
+                day.MenuItems.Add(newMenuItem);
+
+            }
+
+            return day;
 
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using cafemenucore.Models;
-using cafemenucore.DTO;
+using cafemenurepo.DAL;
 
 namespace cafemenurepo.Repositories
 {
@@ -14,7 +14,9 @@ namespace cafemenurepo.Repositories
         ICollection<MenuDay> Get();
 
         ICollection<MenuDay> Get(DateTime startDate, DateTime endDate);
+        ICollection<MenuDay> GetNoAutomap(DateTime startDate, DateTime endDate);
 
-        MenuDay ConvertFromDTO(IMenuDayDTO menuDayDTO);
+        MenuDay ConvertFromDTO(MenuDayDTO menuDayDTO);
+        MenuDay ConvertFromDTONoAutomap(MenuDayDTO menuDayDTO);
     }
 }

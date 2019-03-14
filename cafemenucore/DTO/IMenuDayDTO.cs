@@ -10,5 +10,6 @@ namespace cafemenucore.DTO
     {
         int Id { set; get; }
         DateTime Day { set; get; }
+
     }
 }
